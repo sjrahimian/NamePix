@@ -2,12 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <style>
+    html {
+      background: url(ugly_ass_hearts.gif) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .banner {
+      margin: auto;
+      padding: 15px;
+      display: block;
+      height: 50%;
+      width: 50%;
+    }
+    canvas {
+      border: 1px solid black;
+      width: 600px;
+      height: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    button {
+        background-color: #000000; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+    .wrong {
+      background-color: red;
+    }
+    .right {
+      background-color: green;
+    }
+  </style>
   
-  <title>Node File Uploads</title>
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="bootstrap-4/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <script src="bootstrap-4/js/bootstrap.min.js" type="text/javascript"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script> -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <title>NAME PIX!</title>
 </head>
+
 <body>
   <div class="container">
     <h1>File Upload</h1>
@@ -16,7 +72,7 @@
       <div class="file-field input-field">
         <div class="btn grey">
           <span>File</span>
-          <input name="myImage" type="file">
+          <input name="images" type="file" multiple>
         </div>
         <div class="file-path-wrapper">
           <input class="file-path validate" type="text">
@@ -33,5 +89,42 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+
+
+  <div class="container">
+    <img class="banner" src="banner.png"></img>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+    <div>
+      <canvas id="imgcanvas"></canvas>
+    </div>
+    <div id="container" class="buttons" style="text-align:center">
+      <button class="ui-button ui-widget ui-corner-all" id="btn1">Button 1</button>
+      <button class="ui-button ui-widget ui-corner-all" id="btn2">Button 2</button>
+      <button class="ui-button ui-widget ui-corner-all" id="btn3">Button 3</button>
+      <button class="ui-button ui-widget ui-corner-all" id="btn4">Button 4</button>
+    </div>
+  </div>
+
+  <script>
+    $("#btn1").click(handler);
+    $("#btn2").click(handler);
+    $("#btn3").click(handler);
+    $("#btn4").click(handler);
+
+    function handler(){
+      let obj = $(this);
+      let sid = obj[0]['id'];
+      let id = sid[sid.length-1];
+      console.log(id);
+      $( this ).toggleClass('wrong');
+    }
+
+
+  </script>
+
 </body>
 </html>
